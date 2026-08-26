@@ -1,0 +1,25 @@
+### GET all TODOs
+GET http://localhost:8080/todos
+
+### GET TODO by ID
+GET http://localhost:8080/todos/1
+
+### Create TODO
+POST http://localhost:8080/todos
+Content-Type: application/json
+
+{
+  "title": "Learn Go",
+  "description": "Build a REST API with Go and PostgreSQL"
+}
+
+### Update TODO
+PUT http://localhost:8080/todos/1
+Content-Type: application/json
+
+{
+  "title": "Learn Go Advanced"
+}
+
+### Delete TODO
+DELETE http://localhost:8080/todos/1
