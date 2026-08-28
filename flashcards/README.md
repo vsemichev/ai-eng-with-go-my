@@ -65,12 +65,12 @@ The template includes a complete REST API with the following endpoints:
 - `PUT /todos/{id}` - Update a todo
 - `DELETE /todos/{id}` - Delete a todo
 
-### Flashcards
-- `POST /flashcards` - Create a flashcard
-- `GET /flashcards` - List all flashcards
-- `GET /flashcards/{id}` - Get a flashcard by ID
-- `PUT /flashcards/{id}` - Update a flashcard
-- `DELETE /flashcards/{id}` - Delete a flashcard
+### Notes
+- `POST /notes` - Create a note
+- `GET /notes` - List all notes
+- `GET /notes/{id}` - Get a note by ID
+- `PUT /notes/{id}` - Update a note
+- `DELETE /notes/{id}` - Delete a note
 
 ### Health Check
 - `GET /health` - Application health status

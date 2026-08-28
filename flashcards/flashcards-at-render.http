@@ -27,27 +27,27 @@ Content-Type: application/json
 ### Delete TODO
 DELETE https://flashcards-9nm0.onrender.com/todos/1
 
-### GET all Flashcards
-GET https://flashcards-9nm0.onrender.com/flashcards
+### GET all Notes
+GET https://flashcards-9nm0.onrender.com/notes
 
-### GET Flashcard by ID
-GET https://flashcards-9nm0.onrender.com/flashcards/1
+### GET Note by ID
+GET https://flashcards-9nm0.onrender.com/notes/1
 
-### Create Flashcard
-POST https://flashcards-9nm0.onrender.com/flashcards
+### Create Note
+POST https://flashcards-9nm0.onrender.com/notes
 Content-Type: application/json
 
 {
   "content": "The mitochondria is the powerhouse of the cell"
 }
 
-### Update Flashcard
-PUT https://flashcards-9nm0.onrender.com/flashcards/1
+### Update Note
+PUT https://flashcards-9nm0.onrender.com/notes/1
 Content-Type: application/json
 
 {
   "content": "The mitochondria produces ATP through cellular respiration"
 }
 
-### Delete Flashcard
-DELETE https://flashcards-9nm0.onrender.com/flashcards/1
+### Delete Note
+DELETE https://flashcards-9nm0.onrender.com/notes/1

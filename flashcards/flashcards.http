@@ -27,27 +27,27 @@ Content-Type: application/json
 ### Delete TODO
 DELETE http://localhost:8080/todos/1
 
-### GET all Flashcards
-GET http://localhost:8080/flashcards
+### GET all Notes
+GET http://localhost:8080/notes
 
-### GET Flashcard by ID
-GET http://localhost:8080/flashcards/1
+### GET Note by ID
+GET http://localhost:8080/notes/1
 
-### Create Flashcard
-POST http://localhost:8080/flashcards
+### Create Note
+POST http://localhost:8080/notes
 Content-Type: application/json
 
 {
   "content": "The mitochondria is the powerhouse of the cell"
 }
 
-### Update Flashcard
-PUT http://localhost:8080/flashcards/1
+### Update Note
+PUT http://localhost:8080/notes/1
 Content-Type: application/json
 
 {
   "content": "The mitochondria produces ATP through cellular respiration"
 }
 
-### Delete Flashcard
-DELETE http://localhost:8080/flashcards/1
+### Delete Note
+DELETE http://localhost:8080/notes/1
