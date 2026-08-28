@@ -1,0 +1,1 @@
+- after each task is completed, go build the project to verify your output

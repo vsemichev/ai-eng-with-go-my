@@ -1,14 +1,14 @@
 ### Healthcheck
-GET http://localhost:8080/health
+GET https://flashcards-9nm0.onrender.com/health
 
 ### GET all TODOs
-GET http://localhost:8080/todos
+GET https://flashcards-9nm0.onrender.com/todos
 
 ### GET TODO by ID
-GET http://localhost:8080/todos/1
+GET https://flashcards-9nm0.onrender.com/todos/1
 
 ### Create TODO
-POST http://localhost:8080/todos
+POST https://flashcards-9nm0.onrender.com/todos
 Content-Type: application/json
 
 {
@@ -17,7 +17,7 @@ Content-Type: application/json
 }
 
 ### Update TODO
-PUT http://localhost:8080/todos/1
+PUT https://flashcards-9nm0.onrender.com/todos/1
 Content-Type: application/json
 
 {
@@ -25,16 +25,16 @@ Content-Type: application/json
 }
 
 ### Delete TODO
-DELETE http://localhost:8080/todos/1
+DELETE https://flashcards-9nm0.onrender.com/todos/1
 
 ### GET all Flashcards
-GET http://localhost:8080/flashcards
+GET https://flashcards-9nm0.onrender.com/flashcards
 
 ### GET Flashcard by ID
-GET http://localhost:8080/flashcards/1
+GET https://flashcards-9nm0.onrender.com/flashcards/1
 
 ### Create Flashcard
-POST http://localhost:8080/flashcards
+POST https://flashcards-9nm0.onrender.com/flashcards
 Content-Type: application/json
 
 {
@@ -42,7 +42,7 @@ Content-Type: application/json
 }
 
 ### Update Flashcard
-PUT http://localhost:8080/flashcards/1
+PUT https://flashcards-9nm0.onrender.com/flashcards/1
 Content-Type: application/json
 
 {
@@ -50,4 +50,4 @@ Content-Type: application/json
 }
 
 ### Delete Flashcard
-DELETE http://localhost:8080/flashcards/1
+DELETE https://flashcards-9nm0.onrender.com/flashcards/1

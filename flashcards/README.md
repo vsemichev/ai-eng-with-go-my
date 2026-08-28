@@ -58,6 +58,20 @@ The application will start on `http://localhost:8080` (or the port specified in 
 
 The template includes a complete REST API with the following endpoints:
 
+### Todos
+- `POST /todos` - Create a todo
+- `GET /todos` - List all todos
+- `GET /todos/{id}` - Get a todo by ID
+- `PUT /todos/{id}` - Update a todo
+- `DELETE /todos/{id}` - Delete a todo
+
+### Flashcards
+- `POST /flashcards` - Create a flashcard
+- `GET /flashcards` - List all flashcards
+- `GET /flashcards/{id}` - Get a flashcard by ID
+- `PUT /flashcards/{id}` - Update a flashcard
+- `DELETE /flashcards/{id}` - Delete a flashcard
+
 ### Health Check
 - `GET /health` - Application health status
 
