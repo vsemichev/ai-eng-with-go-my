@@ -1,59 +1,5 @@
-### Healthcheck
-GET https://flashcards-9nm0.onrender.com/health
-
-### GET all TODOs
-GET https://flashcards-9nm0.onrender.com/todos
-
-### GET TODO by ID
-GET https://flashcards-9nm0.onrender.com/todos/1
-
-### Create TODO
-POST https://flashcards-9nm0.onrender.com/todos
-Content-Type: application/json
-
-{
-  "title": "Learn Go",
-  "description": "Build a REST API with Go and PostgreSQL"
-}
-
-### Update TODO
-PUT https://flashcards-9nm0.onrender.com/todos/1
-Content-Type: application/json
-
-{
-  "title": "Learn Go Advanced"
-}
-
-### Delete TODO
-DELETE https://flashcards-9nm0.onrender.com/todos/1
-
-### GET all Notes
-GET https://flashcards-9nm0.onrender.com/notes
-
-### GET Note by ID
-GET https://flashcards-9nm0.onrender.com/notes/1
-
-### Create Note
-POST https://flashcards-9nm0.onrender.com/notes
-Content-Type: application/json
-
-{
-  "content": "The mitochondria is the powerhouse of the cell"
-}
-
-### Update Note
-PUT https://flashcards-9nm0.onrender.com/notes/1
-Content-Type: application/json
-
-{
-  "content": "The mitochondria produces ATP through cellular respiration"
-}
-
-### Delete Note
-DELETE https://flashcards-9nm0.onrender.com/notes/1
-
 ### Create Note - English Kingdom History 1
-POST https://flashcards-9nm0.onrender.com/notes
+POST http://localhost:8080/notes
 Content-Type: application/json
 
 {
@@ -61,7 +7,7 @@ Content-Type: application/json
 }
 
 ### Create Note - English Kingdom History 2
-POST https://flashcards-9nm0.onrender.com/notes
+POST http://localhost:8080/notes
 Content-Type: application/json
 
 {
@@ -69,7 +15,7 @@ Content-Type: application/json
 }
 
 ### Create Note - English Kingdom History 3
-POST https://flashcards-9nm0.onrender.com/notes
+POST http://localhost:8080/notes
 Content-Type: application/json
 
 {
@@ -77,7 +23,7 @@ Content-Type: application/json
 }
 
 ### Create Note - English Kingdom History 4
-POST https://flashcards-9nm0.onrender.com/notes
+POST http://localhost:8080/notes
 Content-Type: application/json
 
 {
@@ -85,7 +31,7 @@ Content-Type: application/json
 }
 
 ### Create Note - English Kingdom History 5
-POST https://flashcards-9nm0.onrender.com/notes
+POST http://localhost:8080/notes
 Content-Type: application/json
 
 {
@@ -93,7 +39,7 @@ Content-Type: application/json
 }
 
 ### Create Note - English Kingdom History 6
-POST https://flashcards-9nm0.onrender.com/notes
+POST http://localhost:8080/notes
 Content-Type: application/json
 
 {
@@ -101,7 +47,7 @@ Content-Type: application/json
 }
 
 ### Create Note - English Kingdom History 7
-POST https://flashcards-9nm0.onrender.com/notes
+POST http://localhost:8080/notes
 Content-Type: application/json
 
 {
@@ -109,7 +55,7 @@ Content-Type: application/json
 }
 
 ### Create Note - English Kingdom History 8
-POST https://flashcards-9nm0.onrender.com/notes
+POST http://localhost:8080/notes
 Content-Type: application/json
 
 {
@@ -117,7 +63,7 @@ Content-Type: application/json
 }
 
 ### Create Note - English Kingdom History 9
-POST https://flashcards-9nm0.onrender.com/notes
+POST http://localhost:8080/notes
 Content-Type: application/json
 
 {
@@ -125,7 +71,7 @@ Content-Type: application/json
 }
 
 ### Create Note - English Kingdom History 10
-POST https://flashcards-9nm0.onrender.com/notes
+POST http://localhost:8080/notes
 Content-Type: application/json
 
 {

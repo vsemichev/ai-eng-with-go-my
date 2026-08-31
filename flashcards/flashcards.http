@@ -51,3 +51,26 @@ Content-Type: application/json
 
 ### Delete Note
 DELETE http://localhost:8080/notes/1
+
+### Start a new quiz conversation
+POST http://localhost:8080/quiz/generate
+Content-Type: application/json
+
+{
+  "messages": []
+}
+
+### Continue an existing quiz conversation
+POST http://localhost:8080/quiz/generate
+Content-Type: application/json
+
+{
+  "conversationId": "2468b843668ec04a285e07f66a18f00f",
+  "messages": [
+    {
+      "role": "assistant",
+      "content": "What significant event occurred in 1707 that involved the Kingdom of England and the Kingdom of Scotland?"
+    },
+    { "role": "user", "content": "A union was formed" }
+  ]
+}

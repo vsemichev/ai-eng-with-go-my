@@ -1,0 +1,25 @@
+### Quiz start
+POST http://localhost:8080/quiz/generate
+Content-Type: application/json
+
+{
+  "conversationId": "b5e2fd3238e92231fcef34a1ba6c1f9f",
+  "messages": [
+    {
+      "role": "assistant",
+      "content": "When did the Kingdom of England merge with the Kingdom of Scotland, and what was the result of that merger?"
+    },
+    {
+      "role": "user",
+      "content": "The Kingdom of England merged with the Kingdom of Scotland in 1707, resulting in the formation of the Kingdom of Great Britain."
+    },
+    {
+      "role": "assistant",
+      "content": "Correct! The Kingdom of England did merge with the Kingdom of Scotland in 1707, forming the Kingdom of Great Britain. \n\nWhat significant event did Henry VIII initiate in the 1530s?"
+    },
+    {
+      "role": "user",
+      "content": "Henry VIII initiated the English Reformation in the 1530s, which led to the Church of England breaking away from the authority of the Pope and the Roman Catholic Church."
+    }
+  ]
+}

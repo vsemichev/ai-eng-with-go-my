@@ -16,6 +16,7 @@ The project requires a `.env` file for local development. This file is already p
 
 - `DB_URL` - PostgreSQL database connection string
 - `PORT` - Application port (defaults to 8080)
+- `OPENAI_API_KEY` - OpenAI API key, used by the quiz generation endpoint
 
 ### Database Setup
 
@@ -84,6 +85,7 @@ The application uses environment-based configuration managed through the `config
 
 - **DB_URL**: PostgreSQL database connection string (required)
 - **PORT**: Application port (optional, defaults to 8080)
+- **OPENAI_API_KEY**: OpenAI API key used to call the LLM for quiz generation (required)
 
 ## Database
 

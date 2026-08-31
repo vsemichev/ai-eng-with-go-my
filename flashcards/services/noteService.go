@@ -2,6 +2,7 @@ package services
 
 import (
 	"fmt"
+	"log/slog"
 	"strings"
 
 	"flashcards/db"
@@ -17,7 +18,10 @@ func NewNoteService(repo db.NoteRepository) *NoteService {
 }
 
 func (s *NoteService) CreateNote(req *models.CreateNoteRequest) (*models.Note, error) {
+	slog.Info("creating note")
+
 	if err := s.validateCreateRequest(req); err != nil {
+		slog.Error("failed to create note", "error", err)
 		return nil, err
 	}
 
@@ -26,40 +30,62 @@ func (s *NoteService) CreateNote(req *models.CreateNoteRequest) (*models.Note, e
 	}
 
 	if err := s.repo.CreateNote(note); err != nil {
-		return nil, fmt.Errorf("failed to create note: %w", err)
+		wrappedErr := fmt.Errorf("failed to create note: %w", err)
+		slog.Error("failed to create note", "error", wrappedErr)
+		return nil, wrappedErr
 	}
+
+	slog.Info("created note successfully", "noteId", note.ID)
 
 	return note, nil
 }
 
 func (s *NoteService) GetNoteByID(id int) (*models.Note, error) {
+	slog.Info("getting note by id", "noteId", id)
+
 	if id <= 0 {
-		return nil, fmt.Errorf("invalid note ID: %d", id)
+		err := fmt.Errorf("invalid note ID: %d", id)
+		slog.Error("failed to get note by id", "noteId", id, "error", err)
+		return nil, err
 	}
 
 	note, err := s.repo.GetNoteByID(id)
 	if err != nil {
+		slog.Error("failed to get note by id", "noteId", id, "error", err)
 		return nil, err
 	}
+
+	slog.Info("got note by id successfully", "noteId", id)
 
 	return note, nil
 }
 
 func (s *NoteService) GetAllNotes() ([]*models.Note, error) {
+	slog.Info("getting all notes")
+
 	notes, err := s.repo.GetAllNotes()
 	if err != nil {
-		return nil, fmt.Errorf("failed to get notes: %w", err)
+		wrappedErr := fmt.Errorf("failed to get notes: %w", err)
+		slog.Error("failed to get all notes", "error", wrappedErr)
+		return nil, wrappedErr
 	}
+
+	slog.Info("got all notes successfully", "noteCount", len(notes))
 
 	return notes, nil
 }
 
 func (s *NoteService) UpdateNote(id int, req *models.UpdateNoteRequest) (*models.Note, error) {
+	slog.Info("updating note", "noteId", id)
+
 	if id <= 0 {
-		return nil, fmt.Errorf("invalid note ID: %d", id)
+		err := fmt.Errorf("invalid note ID: %d", id)
+		slog.Error("failed to update note", "noteId", id, "error", err)
+		return nil, err
 	}
 
 	if err := s.validateUpdateRequest(req); err != nil {
+		slog.Error("failed to update note", "noteId", id, "error", err)
 		return nil, err
 	}
 
@@ -68,28 +94,52 @@ func (s *NoteService) UpdateNote(id int, req *models.UpdateNoteRequest) (*models
 	if req.Content != nil {
 		trimmedContent := strings.TrimSpace(*req.Content)
 		if trimmedContent == "" {
-			return nil, fmt.Errorf("content cannot be empty")
+			err := fmt.Errorf("content cannot be empty")
+			slog.Error("failed to update note", "noteId", id, "error", err)
+			return nil, err
 		}
 		updates["content"] = trimmedContent
 	}
 
 	if len(updates) == 0 {
-		return nil, fmt.Errorf("no valid updates provided")
-	}
-
-	if err := s.repo.UpdateNote(id, updates); err != nil {
+		err := fmt.Errorf("no valid updates provided")
+		slog.Error("failed to update note", "noteId", id, "error", err)
 		return nil, err
 	}
 
-	return s.repo.GetNoteByID(id)
+	if err := s.repo.UpdateNote(id, updates); err != nil {
+		slog.Error("failed to update note", "noteId", id, "error", err)
+		return nil, err
+	}
+
+	note, err := s.repo.GetNoteByID(id)
+	if err != nil {
+		slog.Error("failed to update note", "noteId", id, "error", err)
+		return nil, err
+	}
+
+	slog.Info("updated note successfully", "noteId", id)
+
+	return note, nil
 }
 
 func (s *NoteService) DeleteNote(id int) error {
+	slog.Info("deleting note", "noteId", id)
+
 	if id <= 0 {
-		return fmt.Errorf("invalid note ID: %d", id)
+		err := fmt.Errorf("invalid note ID: %d", id)
+		slog.Error("failed to delete note", "noteId", id, "error", err)
+		return err
 	}
 
-	return s.repo.DeleteNote(id)
+	if err := s.repo.DeleteNote(id); err != nil {
+		slog.Error("failed to delete note", "noteId", id, "error", err)
+		return err
+	}
+
+	slog.Info("deleted note successfully", "noteId", id)
+
+	return nil
 }
 
 func (s *NoteService) validateCreateRequest(req *models.CreateNoteRequest) error {
